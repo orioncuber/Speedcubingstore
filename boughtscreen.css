@@ -1,0 +1,353 @@
+/* =========================================
+   SpeedCubingStore - Purchase Confirmation
+   ========================================= */
+
+:root {
+    --orange: #ff7a1a;
+    --orange-light: #ff9a4d;
+    --blue: #2963ff;
+    --blue-dark: #194bd1;
+    --background: #f4f7fc;
+    --white: #ffffff;
+    --text: #202b3c;
+    --muted: #697586;
+    --success: #20b875;
+    --defaultfont: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Reset */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Page background */
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+
+    font-family: var(--defaultfont);
+    color: var(--text);
+
+    background:
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(255, 122, 26, 0.10),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 90% 85%,
+            rgba(41, 99, 255, 0.10),
+            transparent 35%
+        ),
+        var(--background);
+
+    cursor: url("https://img.icons8.com/fluency/48/cursor--v1.png"), auto;
+}
+
+/* Main confirmation card */
+
+.thank-you-container {
+    width: 100%;
+    max-width: 760px;
+
+    margin: auto;
+    padding: 12px;
+
+    animation: fadeIn 0.7s ease both;
+}
+
+.thank-you-content {
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 56px 42px;
+
+    text-align: center;
+
+    background: var(--white);
+
+    border: 1px solid rgba(41, 99, 255, 0.08);
+    border-radius: 28px;
+
+    box-shadow:
+        0 20px 60px rgba(31, 50, 86, 0.09),
+        0 4px 12px rgba(31, 50, 86, 0.04);
+}
+
+/* Decorative orange accent */
+
+.thank-you-content::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 6px;
+
+    background: linear-gradient(
+        90deg,
+        var(--orange),
+        var(--orange-light),
+        var(--blue)
+    );
+}
+
+/* Success checkmark */
+
+.success-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 88px;
+    height: 88px;
+
+    margin-bottom: 28px;
+
+    color: var(--white);
+    background: var(--success);
+
+    border: 8px solid #e4f8ee;
+    border-radius: 50%;
+
+    font-size: 42px;
+    font-weight: bold;
+    line-height: 1;
+
+    box-shadow: 0 8px 22px rgba(32, 184, 117, 0.18);
+
+    animation: popIn 0.5s 0.15s ease both;
+}
+
+/* Main heading */
+
+h1 {
+    max-width: 600px;
+
+    margin-bottom: 20px;
+
+    font-family: var(--defaultfont);
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -1.2px;
+
+    color: var(--orange);
+}
+
+/* Main thank-you message */
+
+.thank-you-message {
+    max-width: 500px;
+
+    margin-bottom: 26px;
+
+    color: var(--muted);
+
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+/* Store team signature */
+
+.team-message {
+    margin-bottom: 34px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.team-message strong {
+    color: var(--text);
+    font-size: 15px;
+}
+
+/* Continue Shopping button */
+
+.cool-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    width: 100%;
+    max-width: 340px;
+    min-height: 56px;
+
+    padding: 16px 28px;
+
+    color: var(--white);
+    background: linear-gradient(
+        135deg,
+        var(--blue),
+        var(--blue-dark)
+    );
+
+    font-family: var(--defaultfont);
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0.2px;
+
+    border: none;
+    border-radius: 14px;
+
+    box-shadow: 0 8px 20px rgba(41, 99, 255, 0.23);
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+/* Button hover */
+
+.cool-button:hover {
+    background: linear-gradient(
+        135deg,
+        #3973ff,
+        #2453d6
+    );
+
+    box-shadow: 0 12px 26px rgba(41, 99, 255, 0.32);
+
+    transform: translateY(-3px);
+}
+
+/* Button click */
+
+.cool-button:active {
+    transform: translateY(0) scale(0.98);
+
+    box-shadow: 0 4px 10px rgba(41, 99, 255, 0.2);
+}
+
+/* Keyboard accessibility */
+
+.cool-button:focus-visible {
+    outline: 3px solid var(--orange);
+    outline-offset: 5px;
+}
+
+/* Entry animation */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Success icon animation */
+
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    70% {
+        opacity: 1;
+        transform: scale(1.12);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Tablet and smaller screens */
+
+@media (max-width: 600px) {
+    body {
+        padding: 16px;
+    }
+
+    .thank-you-container {
+        padding: 0;
+    }
+
+    .thank-you-content {
+        padding: 44px 22px;
+        border-radius: 22px;
+    }
+
+    .success-icon {
+        width: 76px;
+        height: 76px;
+
+        margin-bottom: 24px;
+
+        font-size: 36px;
+    }
+
+    h1 {
+        font-size: clamp(27px, 7vw, 36px);
+        letter-spacing: -0.7px;
+    }
+
+    .thank-you-message {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .cool-button {
+        max-width: 100%;
+        min-height: 54px;
+        font-size: 15px;
+    }
+}
+
+/* Very small screens */
+
+@media (max-width: 360px) {
+    .thank-you-content {
+        padding: 36px 16px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    .success-icon {
+        width: 68px;
+        height: 68px;
+        font-size: 32px;
+    }
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

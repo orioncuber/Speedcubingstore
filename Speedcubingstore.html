@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeedCubingStore.com</title>
+    <link rel="stylesheet" href="stylebetter.css">
+</head>
+<body>
+    <div class="header">
+        <img
+            src="https://www.cubelelo.com/cdn/shop/files/552441616sA_800x.jpg?v=1755763040"
+            alt="SpeedCubingStore logo"
+            class="logo"
+        >
+        <h1>SpeedCubingStore UK</h1>
+    </div>
+
+    <h2>
+        ⭐ Special offer! ⭐
+        Orders over £100 get free £20 gift +
+        free delivery within 2-3 working days
+        ⭐ Special offer! ⭐
+    </h2>
+
+    <div id="products"></div>
+
+    <script>
+        const productsContainer = document.getElementById("products");
+
+        fetch("cubes.json")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Could not load cubes.json: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(cubes => {
+                cubes.forEach(cube => {
+                    const product = document.createElement("div");
+                    product.classList.add("product");
+
+                    const name = document.createElement("p");
+                    name.classList.add("product-name");
+                    name.textContent = cube.name;
+
+                    const imageContainer = document.createElement("div");
+                    imageContainer.classList.add("image-container");
+
+                    const image = document.createElement("img");
+                    image.src = cube.image;
+                    image.alt = cube.description;
+                    image.classList.add("centerimage");
+                    imageContainer.appendChild(image);
+
+                    const description = document.createElement("p");
+                    description.classList.add("product-description");
+                    description.textContent = cube.description;
+
+                    const button = document.createElement("button");
+                    button.classList.add("cool-button");
+                    button.textContent = `Buy £${cube.price} (${cube.type})`;
+
+                    button.onclick = function() {
+                        localStorage.setItem("cubeName", cube.name);
+                        localStorage.setItem("cubeImage", cube.image);
+                        localStorage.setItem("cubePrice", cube.price);
+                        localStorage.setItem("cubeDescription", cube.description);
+                        localStorage.setItem("cubeType", cube.type);
+
+                        window.location.href = "payment.html";
+                    };
+
+                    product.appendChild(name);
+                    product.appendChild(imageContainer);
+                    product.appendChild(description);
+                    product.appendChild(button);
+
+                    productsContainer.appendChild(product);
+                });
+            })
+            .catch(error => {
+                console.error("Error loading products:", error);
+                productsContainer.textContent =
+                    "Products could not be loaded. Please try again later.";
+            });
+    </script>
+</body>
+</html>

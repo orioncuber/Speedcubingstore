@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout | SpeedCubingStore</title>
+    <link rel="stylesheet" href="payment.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="#" class="logo">
+            <span class="logo-icon">🎲</span>
+            <span>SpeedCubingStore</span>
+        </a>
+
+        <div class="secure-label">
+            <span class="secure-icon">✓</span>
+            Secure Checkout
+        </div>
+    </header>
+
+    <main class="page-container">
+
+        <section class="welcome-section">
+            <span class="eyebrow">THE FINAL TURN</span>
+
+            <h1>Almost <span>in your hands.</span></h1>
+
+            <p>
+                Your next personal best is waiting.
+                Let's get your order ready.
+            </p>
+        </section>
+
+        <nav class="progress-bar" aria-label="Checkout progress">
+            <div class="progress-step active">
+                <span class="step-number">1</span>
+                <span>Your details</span>
+            </div>
+
+            <div class="progress-line"></div>
+
+            <div class="progress-step">
+                <span class="step-number">2</span>
+                <span>Review</span>
+            </div>
+
+            <div class="progress-line"></div>
+
+            <div class="progress-step">
+                <span class="step-number">3</span>
+                <span>Complete</span>
+            </div>
+        </nav>
+
+        <div class="checkout-layout">
+
+            <section class="checkout-card">
+                <div class="card-heading">
+                    <div>
+                        <span class="section-tag">STEP 01</span>
+                        <h2>Billing details</h2>
+                        <p>Tell us where to send your order.</p>
+                    </div>
+
+                    <div class="heading-icon" aria-hidden="true">
+                        ♙
+                    </div>
+                </div>
+
+                <form id="checkout-form">
+
+                    <div class="form-grid">
+
+                        <div class="form-group full-width">
+                            <label for="fullname">Full name</label>
+                            <input
+                                id="fullname"
+                                name="fullname"
+                                type="text"
+                                placeholder="e.g. Alex Smith"
+                                autocomplete="name"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="email">Email address</label>
+                            <input
+                                id="email"
+                                name="email"
+                                type="email"
+                                placeholder="you@example.com"
+                                autocomplete="email"
+                                required
+                            >
+                            <small>Your order updates will go here.</small>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="address">Street address</label>
+                            <input
+                                id="address"
+                                name="address"
+                                type="text"
+                                placeholder="House number and street"
+                                autocomplete="street-address"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input
+                                id="city"
+                                name="city"
+                                type="text"
+                                placeholder="Your city"
+                                autocomplete="address-level2"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="state">State / Region</label>
+                            <input
+                                id="state"
+                                name="state"
+                                type="text"
+                                placeholder="Your region"
+                                autocomplete="address-level1"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="postcode">Postal / ZIP code</label>
+                            <input
+                                id="postcode"
+                                name="postcode"
+                                type="text"
+                                placeholder="Your postal code"
+                                autocomplete="postal-code"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="form-notice">
+                        <span class="notice-icon">i</span>
+                        <p>
+                            Double-check your details before continuing.
+                            Nobody likes a cube delivered to the wrong address!
+                        </p>
+                    </div>
+
+                    <button type="submit" class="pay-button">
+                        <span>Continue to payment</span>
+                        <span class="button-arrow" aria-hidden="true">→</span>
+                    </button>
+
+                    <p class="demo-note">
+                        Demo checkout — no payment will be taken.
+                    </p>
+
+                    <div id="form-message"
+                         class="form-message"
+                         role="status"
+                         aria-live="polite"
+                         hidden>
+                    </div>
+
+                </form>
+            </section>
+
+            
+<aside class="order-card">
+
+	<div class="order-heading">
+		<div>
+			<span class="section-tag">YOUR CART</span>
+			<h2>Order summary</h2>
+		</div>
+
+		<span class="cart-count">01 ITEM</span>
+	</div>
+
+	<div class="product">
+		<div class="product-art">
+			<img
+				id="checkout-product-image"
+				src=""
+				alt="Selected speedcube"
+			>
+		</div>
+
+		<div class="product-info">
+			<span class="product-category">SPEEDCUBINGSTORE</span>
+
+			<h3 id="checkout-product-name">
+				Loading product...
+			</h3>
+
+			<p6 id="checkout-product-description">
+				Your selected speedcube
+			</p6>
+
+			<h6><span class="quantity">Qty: 1</span></h6>
+		</div>
+	</div>
+
+	<div class="order-divider"></div>
+
+	<div class="price-row">
+		<h6><span>Price: </span></h6>
+		<span id="checkout-subtotal">£0.00</span>
+	</div>
+
+	<div class="price-row">
+		<span></span>
+		<span class="shipping-value"></span>
+	</div>
+
+	<p class="price-disclaimer">
+		
+	</p>
+
+	<div class="order-divider"></div>
+
+	<div class="total-row">
+		<span>Subtotal before shipping</span>
+		<span id="checkout-total">£0.00</span>
+	</div>
+
+	<div class="delivery-note">
+		<span class="delivery-icon">↗</span>
+
+		<div>
+			<p6>Ready, set, solve!</p6>
+			<p>
+				Your next PB is waiting.
+				Let's get your cube ready.
+			</p>
+		</div>
+	</div>
+
+	<div class="trust-row">
+		<span>✓ Clear pricing</span>
+		<span>✓ Easy checkout</span>
+	</div>
+
+</aside>
+
+
+        </div>
+
+        <footer class="footer">
+            <p>© 2026 SpeedCubingStore</p>
+            <p>Built for the love of the solve. ✦</p>
+        </footer>
+
+    </main>
+
+    <script>
+        const checkoutForm = document.getElementById("checkout-form");
+        const formMessage = document.getElementById("form-message");
+
+        checkoutForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            if (!checkoutForm.checkValidity()) {
+                checkoutForm.reportValidity();
+                return;
+            }
+
+            /*formMessage.hidden = false;
+            formMessage.className = "form-message success-message";
+            formMessage.textContent =
+                "Nice! Your details look good. This is a demo, so no payment has been processed.";*/
+				
+			window.location.href = "boughtscreen.html";
+        });
+    </script>
+	
+<script>
+    const productNameValue = localStorage.getItem("cubeName");
+    const productImageValue = localStorage.getItem("cubeImage");
+    const productPriceValue = localStorage.getItem("cubePrice");
+    const productDescriptionValue = localStorage.getItem("cubeDescription");
+
+    const productName = document.getElementById("checkout-product-name");
+    const productImage = document.getElementById("checkout-product-image");
+    const productDescription = document.getElementById("checkout-product-description");
+    const subtotalElement = document.getElementById("checkout-subtotal");
+    const totalElement = document.getElementById("checkout-total");
+    const cartCount = document.querySelector(".cart-count");
+
+    if (productNameValue !== null && productPriceValue !== null) {
+        productName.textContent = productNameValue;
+        productDescription.textContent =
+            productDescriptionValue || "Your selected speedcube";
+
+        if (productImageValue) {
+            productImage.src = productImageValue;
+            productImage.alt = productNameValue;
+            productImage.style.visibility = "visible";
+        } else {
+            productImage.style.visibility = "hidden";
+        }
+
+        const price = Number(productPriceValue);
+
+        if (Number.isFinite(price) && price >= 0) {
+            const formattedPrice = new Intl.NumberFormat("en-GB", {
+                style: "currency",
+                currency: "GBP"
+            }).format(price);
+
+            subtotalElement.textContent = formattedPrice;
+            totalElement.textContent = formattedPrice;
+            cartCount.textContent = "01 ITEM";
+        } else {
+            subtotalElement.textContent = "Price unavailable";
+            totalElement.textContent = "Price unavailable";
+        }
+    } else {
+        productName.textContent = "No product selected";
+        productDescription.textContent =
+            "Return to the store and click Buy on a product.";
+
+        productImage.style.visibility = "hidden";
+        subtotalElement.textContent = "—";
+        totalElement.textContent = "—";
+        cartCount.textContent = "0 ITEMS";
+    }
+</script>
+
+
+</body>
+</html>
